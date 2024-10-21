@@ -3,6 +3,8 @@ import {
 	Controller,
 	Delete,
 	Get,
+	HttpCode,
+	HttpStatus,
 	Param,
 	Post,
 	Put,
@@ -16,16 +18,19 @@ import { StudentsService } from './students.service';
 export class StudentsController {
 	constructor(private readonly studentService: StudentsService) {}
 
+	@HttpCode(HttpStatus.CREATED)
 	@Post()
 	async create(@Body() createStudentDto: CreateStudentDto) {
 		return await this.studentService.create(createStudentDto);
 	}
 
+	@HttpCode(HttpStatus.OK)
 	@Get()
 	async getAll() {
 		return await this.studentService.getAll();
 	}
 
+	@HttpCode(HttpStatus.OK)
 	@Get(':id')
 	async getById(@Param('id') id: string) {
 		return await this.studentService.getById(id);
@@ -39,6 +44,7 @@ export class StudentsController {
 		return await this.studentService.update(id, updateStudentDto);
 	}
 
+	@HttpCode(HttpStatus.OK)
 	@Delete(':id')
 	async delete(@Param('id') id: string) {
 		return await this.studentService.delete(id);

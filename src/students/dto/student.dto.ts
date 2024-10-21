@@ -10,7 +10,7 @@ export class CreateStudentDto {
 	@ApiProperty({ description: 'Student full name' })
 	@IsString()
 	@IsNotEmpty()
-	fullName: string;
+	name: string;
 
 	@ApiProperty({
 		description: 'Student is active (true) or graduated (false).',
@@ -22,7 +22,7 @@ export class CreateStudentDto {
 
 export class UpdateStudentDto {
 	@ApiPropertyOptional({ description: 'Student full name' })
-	fullName?: string;
+	name?: string;
 
 	@ApiPropertyOptional({
 		description: 'Student is active (true) or graduated (false).',
