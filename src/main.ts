@@ -7,10 +7,11 @@ async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
 
 	app.useGlobalPipes(new ValidationPipe());
+	app.enableCors({ origin: '*' });
 
 	const config = new DocumentBuilder()
-		.setTitle('ASM3')
-		.setDescription('The ASM3 API description')
+		.setTitle('ASM4')
+		.setDescription('The ASM4 API description')
 		.setVersion('1.0')
 		.build();
 	const documentFactory = () => SwaggerModule.createDocument(app, config);
