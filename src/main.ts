@@ -13,6 +13,7 @@ async function bootstrap() {
 		.setTitle('ASM4')
 		.setDescription('The ASM4 API description')
 		.setVersion('1.0')
+		.addBearerAuth()
 		.build();
 	const documentFactory = () => SwaggerModule.createDocument(app, config);
 	SwaggerModule.setup('api-docs', app, documentFactory);
